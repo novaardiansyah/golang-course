@@ -3,24 +3,20 @@ package main
 import "fmt"
 
 func main() {
-	var myRune rune = 'a'
-	fmt.Println(myRune)
+	printMe("Hello World")
 
-	var myBoolean bool = true
-	fmt.Println(myBoolean)
+	var numerator int8 = 10
+	var denominator int8 = 2
 
-	var intNum3 rune
-	fmt.Println(intNum3)
-
-	var myVar string = "Hello World"
-	fmt.Println(myVar)
-
-	var1, var2 := 1, 2
-	fmt.Println(var1, var2)
-
-	const myConst string = "Hello World"
-	fmt.Println(myConst)
-
-	const pi float64 = 3.14159
-	fmt.Println(pi)
+	var result, remainder int8 = intDevision(numerator, denominator)
+	fmt.Printf("Result: %v, Remainder: %v\n", result, remainder)
 }
+
+func printMe(printValue string) {
+	fmt.Println(printValue)
+}
+
+func intDevision(numerator int8, denominator int8) (int8, int8) {
+	return numerator / denominator, numerator % denominator
+}
+
