@@ -1,0 +1,9 @@
+.agent/*
+.vscode/*
+.private/*
+
+.env
+_env
+.env.local
+.env.production
+.env.prod
