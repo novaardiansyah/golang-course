@@ -9,16 +9,18 @@ func main() {
 	printMe("Hello World")
 
 	var numerator int8 = 10
-	var denominator int8 = 0
+	var denominator int8 = 2
 
 	var result, remainder, err = intDevision(numerator, denominator)
 	
-	if err != nil {
-		fmt.Println(err.Error())
-		return
-	}
-
-	fmt.Printf("Result: %v, Remainder: %v\n", result, remainder)
+	switch {
+		case err != nil:
+			fmt.Println(err.Error())
+		case remainder == 0:
+			fmt.Printf("Result: %v", result)
+		default:
+			fmt.Printf("Result: %v, Remainder: %v\n", result, remainder)
+		}
 }
 
 func printMe(printValue string) {
