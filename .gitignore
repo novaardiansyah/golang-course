@@ -7,3 +7,5 @@ _env
 .env.local
 .env.production
 .env.prod
+
+*.exe
