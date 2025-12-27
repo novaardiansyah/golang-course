@@ -14,4 +14,11 @@ func main() {
 
 	intSlice = append(intSlice, 7)
 	fmt.Printf("The length is %v with capacity %v\n", len(intSlice), cap(intSlice))
+
+	var intSlice2 []int32 = []int32{8, 9, 10}
+	fmt.Printf("intSlice2: The length is %v with capacity %v\n", len(intSlice2), cap(intSlice2))
+
+	intSlice2 = append(intSlice, intSlice2...)
+	fmt.Printf("intSlice2: The length is %v with capacity %v\n", len(intSlice2), cap(intSlice2))
+	fmt.Println(intSlice2)
 }
