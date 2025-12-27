@@ -11,5 +11,10 @@ func main() {
 	intArr[1] = 2
 	intArr[2] = 3
 
-	fmt.Println(intArr)
+	fmt.Println(intArr[0])
+	fmt.Println(intArr[1:3])
+
+	fmt.Println(&intArr[0])
+	fmt.Println(&intArr[1])
+	fmt.Println(&intArr[2])
 }
