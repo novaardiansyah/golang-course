@@ -2,17 +2,14 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
-func main() {
-	var strSlice = []string{"s", "u", "n", "d", "a", "y"}
-	var strBuilder strings.Builder
+type gasEngine struct {
+	mpg uint8
+	gallons uint8
+}
 
-	for i := range strSlice {
-		strBuilder.WriteString(strSlice[i])
-	}
-	
-	var catStr = strBuilder.String()
-	fmt.Printf("%v, %T\n", catStr, catStr)
+func main() {
+	var myEngine gasEngine = gasEngine{mpg: 20, gallons: 10}
+	fmt.Println(myEngine)
 }
