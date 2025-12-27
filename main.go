@@ -2,23 +2,24 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"time"
 )
 
+var dbData = []string{"id-1", "id-2", "id-3", "id-4", "id-5"}
+
 func main() {
-	var thing1 = [5]float64{1,2,3,4,5}
+	t0 := time.Now()
+	
+	for i := 0; i < len(dbData); i++ {
+		dbCall(i)
+	}
 
-	fmt.Printf("\nThe memory location of the thing1 array is: %p", &thing1)
-
-	var result [5]float64 = square(&thing1)
-	fmt.Printf("\nThe result is: %v", result)
-	fmt.Printf("\nThe value of thing1 is: %v\n", thing1)
+	fmt.Printf("\nTotal execution time: %v\n", time.Since(t0))
 }
 
-func square(thing2 *[5]float64) [5]float64 {
-	fmt.Printf("\nThe memory location of the thing2 array is: %p", thing2)
-
-	for i := range thing2 {
-		thing2[i] = thing2[i] * thing2[i]
-	}
-	return *thing2
+func dbCall(i int) {
+	var delay float32 = rand.Float32() * 2000
+	time.Sleep(time.Duration(delay) * time.Millisecond)
+	fmt.Printf("\nThe result from the database is: %v", dbData[i])
 }
