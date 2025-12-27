@@ -5,24 +5,20 @@ import (
 )
 
 func main() {
-	// var intArr [3]int32 = [3]int32{1, 2, 3}
-	intArr := [...]int32{1, 2, 3}
-	fmt.Println(intArr)
+	var myMap map[string]uint8 = make(map[string]uint8)
+	fmt.Println(myMap)
 
-	var intSlice []int32 = []int32{4, 5, 6}
-	fmt.Printf("The length is %v with capacity %v\n", len(intSlice), cap(intSlice))
+	var myMap2 = map[string]uint8{"Adam": 25, "Eve": 22}
+	fmt.Println(myMap2)
 
-	intSlice = append(intSlice, 7)
-	fmt.Printf("The length is %v with capacity %v\n", len(intSlice), cap(intSlice))
+	fmt.Println(myMap2["John"])
+	
+	var age, ok = myMap2["John"]
+	fmt.Println(age, ok)
 
-	var intSlice2 []int32 = []int32{8, 9, 10}
-	fmt.Printf("intSlice2: The length is %v with capacity %v\n", len(intSlice2), cap(intSlice2))
-
-	intSlice2 = append(intSlice, intSlice2...)
-	fmt.Printf("intSlice2: The length is %v with capacity %v\n", len(intSlice2), cap(intSlice2))
-	fmt.Println(intSlice2)
-
-	var intSlice3 []int32 = make([]int32, 3, 4)
-	fmt.Printf("intSlice3: The length is %v with capacity %v\n", len(intSlice3), cap(intSlice3))
-	fmt.Println(intSlice3)
+	if ok {
+		fmt.Println("John is", age)
+	} else {
+		fmt.Println("John is not in the map")
+	}
 }
