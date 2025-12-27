@@ -20,7 +20,20 @@ func (e gasEngine) milesLeft() uint8 {
 	return e.mpg * e.gallons
 }
 
-func canMakeIt(e gasEngine, miles uint8) {
+type electricEngine struct {
+	mpkwh uint8
+	kwh uint8
+}
+
+func (e electricEngine) milesLeft() uint8 {
+	return e.mpkwh * e.kwh
+}
+
+type engine interface {
+	milesLeft() uint8
+}
+
+func canMakeIt(e engine, miles uint8) {
 	if miles <= e.milesLeft() {
 		fmt.Println("You can make it!")
 	} else {
@@ -42,4 +55,5 @@ func main() {
 	fmt.Println(myEngine.milesLeft())
 
 	canMakeIt(myEngine, myEngine.milesLeft())
+	canMakeIt(electricEngine{20, 10}, 100)
 }
