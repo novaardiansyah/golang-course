@@ -20,6 +20,14 @@ func (e gasEngine) milesLeft() uint8 {
 	return e.mpg * e.gallons
 }
 
+func canMakeIt(e gasEngine, miles uint8) {
+	if miles <= e.milesLeft() {
+		fmt.Println("You can make it!")
+	} else {
+		fmt.Println("You can't make it!")
+	}
+}
+
 func main() {
 	var myEngine gasEngine = gasEngine{20, 10, owner{"John", 30}}
 	fmt.Println(myEngine)
@@ -32,4 +40,6 @@ func main() {
 	fmt.Println(myEngine2)
 
 	fmt.Println(myEngine.milesLeft())
+
+	canMakeIt(myEngine, myEngine.milesLeft())
 }
