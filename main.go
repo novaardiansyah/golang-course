@@ -5,12 +5,20 @@ import (
 )
 
 func main() {
-	var p *int = new(int)
-	var i int = 10
+	var thing1 = [5]float64{1,2,3,4,5}
 
-	fmt.Println(p)
-	fmt.Println(i)
+	fmt.Printf("\nThe memory location of the thing1 array is: %p", &thing1)
 
-	fmt.Printf("\nThe value p points to is: %v\n", *p)
-	fmt.Printf("The value of i is: %v\n", i)
+	var result [5]float64 = square(&thing1)
+	fmt.Printf("\nThe result is: %v", result)
+	fmt.Printf("\nThe value of thing1 is: %v\n", thing1)
+}
+
+func square(thing2 *[5]float64) [5]float64 {
+	fmt.Printf("\nThe memory location of the thing2 array is: %p", thing2)
+
+	for i := range thing2 {
+		thing2[i] = thing2[i] * thing2[i]
+	}
+	return *thing2
 }
