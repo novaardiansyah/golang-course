@@ -21,4 +21,8 @@ func main() {
 	intSlice2 = append(intSlice, intSlice2...)
 	fmt.Printf("intSlice2: The length is %v with capacity %v\n", len(intSlice2), cap(intSlice2))
 	fmt.Println(intSlice2)
+
+	var intSlice3 []int32 = make([]int32, 3, 4)
+	fmt.Printf("intSlice3: The length is %v with capacity %v\n", len(intSlice3), cap(intSlice3))
+	fmt.Println(intSlice3)
 }
